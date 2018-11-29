@@ -1,0 +1,22 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<p>
+	The basic idea underlying the model proposed by Deneubourg et al. [TODO] is that isolated items should be picked up and dropped at some other location where more of the items of that type are present. 
+	To first understand the clustering model, assume that there exists only one type of item. 
+	Assume that the ants move randomly and at some time \(t\), an ant encounters an object.
+	Let \(p_{pick}\) represent the probablity that the ant picks up this object.
+	As per the assumption that this model makes, we would like this probability of picking up this object to be inversely proportional to the number of objects in its neighbourhood. 
+	Let \(f\) represent a fraction of the total objects that reside in the neighbourhood of this object, and \(k_{pick}\) to be some constant. 
+</p>
+<p>
+    $$p_{pick} = (\frac{k_{pick}}{k_{pick} + f})^2$$
+</p>	
+<p>
+	when \(f \ll k_{pick}\), \(p_{pick} \sim 1\), and vice versa.
+</p>
+<p>
+	To compute \(f\), Deneubourg et al. [TODO] assumed that each of the ants have a short term memory that records the number of objects enountered during a the last \(T\) timesteps. Let \(N\) represent this number. Assuming that at each timestep, at most 1 objects can be encountered, 
+</p>
+<p>
+	$$f = N/T$$
+</p>
