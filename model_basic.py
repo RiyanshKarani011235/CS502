@@ -29,6 +29,7 @@ class ModelBasic:
         for i in tqdm(range(50000)):
             if i % 5000 == 0:
                 self._grid.show_grid()
+            self._grid.update()
 
     def compute_similarity_measure(self, object, ant):
         pass
