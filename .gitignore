@@ -2,3 +2,5 @@
 venv
 .idea
 .ipynb_checkpoints
+images
+.DS_STORE

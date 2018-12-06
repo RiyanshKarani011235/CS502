@@ -2,7 +2,9 @@ import random
 import collections
 import matplotlib.pyplot as plt
 import numpy as np
-from tqdmm import tqdm
+from tqdm import tqdm
+from time import gmtime, strftime
+import os
 
 class ModelBasic:
     def __init__(self, grid_size=1000, num_ants=1000, num_objects=1000, ant_memory_size=1000, k1=0.4, k2=0.3):
@@ -20,8 +22,8 @@ class ModelBasic:
     def simulate(self):
         self._grid.show_grid()
         for i in tqdm(range(50000)):
-            self._grid.update()
-        self._grid.show_grid()
+            if i % 5000 == 0:
+                self._grid.show_grid()
 
     def compute_similarity_measure(self, object, ant):
         pass
@@ -111,8 +113,12 @@ class Grid:
 
         plt.legend()
         plt.grid(True)
-        fig = plt.fig()
-	plt.savefig('foo.png')
+        filepath = os.path.join(os.path.dirname(__file__), 'images')
+        if not os.path.exists(filepath):
+            os.mkdir(filepath)
+        filename = os.path.join(filepath, 'image_' + strftime("%y-%m-%d %h:%m:%s", gmtime()) + '.png')
+        fig.savefig(filename)
+        plt.close(fig)
 
 class Cell:
     def __init__(self, object_=None, ant=None):
