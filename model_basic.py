@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use('Agg')
+
 import random
 import collections
 import matplotlib.pyplot as plt
