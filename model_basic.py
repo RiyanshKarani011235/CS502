@@ -6,6 +6,8 @@ from tqdm import tqdm
 from time import gmtime, strftime
 import os
 
+matplotlib.use('Agg')
+
 class ModelBasic:
     def __init__(self, grid_size=1000, num_ants=1000, num_objects=1000, ant_memory_size=1000, k1=0.4, k2=0.3):
         self._grid_size = grid_size
