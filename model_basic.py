@@ -2,6 +2,7 @@ import random
 import collections
 import matplotlib.pyplot as plt
 import numpy as np
+from tqdmm import tqdm
 
 class ModelBasic:
     def __init__(self, grid_size=1000, num_ants=1000, num_objects=1000, ant_memory_size=1000, k1=0.4, k2=0.3):
@@ -18,7 +19,7 @@ class ModelBasic:
 
     def simulate(self):
         self._grid.show_grid()
-        for i in range(50000):
+        for i in tqdm(range(50000)):
             self._grid.update()
         self._grid.show_grid()
 
@@ -110,7 +111,8 @@ class Grid:
 
         plt.legend()
         plt.grid(True)
-        plt.show()
+        fig = plt.fig()
+	plt.savefig('foo.png')
 
 class Cell:
     def __init__(self, object_=None, ant=None):
