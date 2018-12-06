@@ -12,7 +12,7 @@ import os
 matplotlib.use('Agg')
 
 class ModelBasic:
-    def __init__(self, grid_size=1000, num_ants=1000, num_objects=1000, ant_memory_size=1000, k1=0.4, k2=0.3):
+    def __init__(self, grid_size=200, num_ants=10, num_objects=100, ant_memory_size=50, k1=0.1, k2=0.3):
         self._grid_size = grid_size
         self._num_ants = num_ants
         self._num_objects = num_objects
@@ -26,8 +26,8 @@ class ModelBasic:
 
     def simulate(self):
         self._grid.show_grid()
-        for i in tqdm(range(50000)):
-            if i % 5000 == 0:
+        for i in tqdm(range(5000000)):
+            if i % 50000 == 0:
                 self._grid.show_grid()
             self._grid.update()
 
