@@ -1,3 +1,6 @@
 matplotlib
 numpy
 tqdm
+plotly
+pandas
+cufflinks
