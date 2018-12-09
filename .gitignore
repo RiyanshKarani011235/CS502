@@ -3,3 +3,5 @@ venv
 .idea
 .ipynb_checkpoints
 .DS_STORE
+
+# CS-502.ipynb
