@@ -1,0 +1,44 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<p>
+    Lumer and Faieta have generalized Deneubourg et al's Basic model. The idea is to define a measure of dissimilarity between two objects \(d (o_i, o_j)\).
+    This distribution can either be binary, wherein \(d(o_i, o_j) = 0 \) if \(o_i\) and \(o_j\) are identical, and 1 if they are not identical. Of course,
+    this dissimilarity measure can be used to encode much more complex metric spaces such as the Euclidean metric or the Infinite norm. The formulation of their solution deviates from the basic assumptions we put forth, but it provides a way of computing the spatial
+    state of an object much more efficiently, with significantly fewer constraints. 
+</p>
+
+<p>
+    Let \(d(o_i, o_j)\) be the distance between two objects \(o_i\) and \(o_j\) in the space of attributres. Let us also assume that an agent \(i\)
+    s located at site \(r\) at time \(t\), and finds an object \(o_i\) at that site. The "Local Density" \(f(o_i)\) with respect to object \(o_i\) at site 
+    \(r\) is given by
+</p>
+
+<p>
+    $$f(o_i) = \begin{cases}
+        \frac{1}{s} \cdot \sum_{o_j \in \text{Neigh}_{(sxs)}(r)} [1 - \frac{d(o_i, o_j)}{\alpha}],  & \text{if $f > 0$} \\
+        0, & \text{otherwise}
+\end{cases}$$
+</p>
+
+<p>
+    \(f(o_i)\) is a measure of the average similarity of object \(o_i\) with the other objects present in it's neighbourhood. \(\alpha \) is a factor that 
+    defines the scale of dissimilarity and is important as it determines whether two objects should be close to each other or not. For example,
+    if alpha is too large, two objects being very dissimilar will not lead to a large change in the average similarity. Meanwhile, a value that is 
+    very small will effectively scale small dissimilarities.
+</p>
+
+<p>
+    Given this measure of the average dissimilarity of an object with it's neighbourhood, the pick and place probabilities
+    are defined as follows
+</p>
+
+<p>
+    $$p_{pick}(o_i) = (\frac{k_1}{k_1 + f(o_i)})^2$$
+</p>
+
+<p>
+    $$p_d(o_i) = \begin{cases}
+        2 \cdot f(o_i),  & \text{if $f(o_i) < k_2$} \\
+        1, & \text{if $f(o_i) \geq k_2$}
+\end{cases}$$
+</p>
